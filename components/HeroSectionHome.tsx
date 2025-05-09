@@ -1,14 +1,18 @@
 "use client";
 
-
 import { motion } from "framer-motion";
+import { FlipWordsDemo } from "./FlipWordsDemo";
 
-export function HeroSectionOne() {
+type HeroSectionOneProps = {
+  title: string;
+};
+
+export function HeroSectionOne({title}: HeroSectionOneProps) {
   return (
     <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center h-[80%]">
       <div className="px-4 py-10 md:py-20 flex flex-col items-center justify-center h-full">
         <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-black md:text-4xl lg:text-7xl dark:text-slate-100">
-          {"Viajes que pisan fuerte la tierra y acarician el cielo"
+          {title
             .split(" ")
             .map((word, index) => (
               <motion.span
@@ -26,21 +30,9 @@ export function HeroSectionOne() {
               </motion.span>
             ))}
         </h1>
-        <motion.p
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 0.8,
-          }}
-          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
-        >
-          Descubre México a través de rutas naturales, experiencias a caballo y momentos que conectan con lo esencial.
-        </motion.p>
+        <div className="hidden lg:inline">
+          <FlipWordsDemo />
+        </div>
         <motion.div
           initial={{
             opacity: 0,

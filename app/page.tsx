@@ -1,7 +1,6 @@
 "use client";
-import { BackgroundLinesDemo } from "@/components/BackgroundLinesDemo";
-import { FlipWordsDemo } from "@/components/FlipWordsDemo";
-import { HeroSectionOne } from "@/components/HeroSectionOne";
+import { CarouselDemo } from "@/components/CarouselDemo";
+import { HeroSectionOne } from "@/components/HeroSectionHome";
 import {
   Navbar,
   NavBody,
@@ -19,7 +18,7 @@ export default function Page() {
   const navItems = [
     {
       name: "Cabalgatas",
-      link: "#features",
+      link: "/cabalgatas",
     },
     {
       name: "Surf",
@@ -27,7 +26,7 @@ export default function Page() {
     },
     {
       name: "Yoga",
-      link: "#contact",
+      link: "/yoga",
     },
     {
       name: "Rafting",
@@ -56,7 +55,9 @@ export default function Page() {
             <NavbarLogo />
             <NavItems items={navItems} />
             <div className="flex items-center gap-4">
-              <NavbarButton variant="secondary">Login</NavbarButton>
+              <NavbarButton variant="secondary" href="https://www.instagram.com/cielo.earth/" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg>
+              </NavbarButton>
               <NavbarButton variant="primary">Book a call</NavbarButton>
             </div>
           </NavBody>
@@ -104,116 +105,16 @@ export default function Page() {
             </MobileNavMenu>
           </MobileNav>
         </Navbar>
-        <HeroSectionOne />
-        {/* <HeroSectionOne /> */}
-        {/* <DummyContent /> */}
-
-        {/* Navbar */}
+        <HeroSectionOne title="Viajes que pisan fuerte la tierra y acarician el cielo."/>
       </div>
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <FlipWordsDemo />
+
+
+      <div className="w-full h-auto flex flex-col items-center justify-start py-20">
         <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
           Próximas Experiencias
         </h2>
-        {/* <BackgroundLinesDemo /> */}
+        <CarouselDemo />
       </div>
     </div>
   );
 }
-
-const DummyContent = () => {
-  return (
-    <div className="container mx-auto p-8 pt-24">
-      <h1 className="mb-4 text-center text-3xl font-bold">
-        Check the navbar at the top of the container
-      </h1>
-      <p className="mb-10 text-center text-sm text-zinc-500">
-        For demo purpose we have kept the position as{" "}
-        <span className="font-medium">Sticky</span>. Keep in mind that this
-        component is <span className="font-medium">fixed</span> and will not
-        move when scrolling.
-      </p>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-        {[
-          {
-            id: 1,
-            title: "The",
-            width: "md:col-span-1",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 2,
-            title: "First",
-            width: "md:col-span-2",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 3,
-            title: "Rule",
-            width: "md:col-span-1",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 4,
-            title: "Of",
-            width: "md:col-span-3",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 5,
-            title: "F",
-            width: "md:col-span-1",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 6,
-            title: "Club",
-            width: "md:col-span-2",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 7,
-            title: "Is",
-            width: "md:col-span-2",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 8,
-            title: "You",
-            width: "md:col-span-1",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 9,
-            title: "Do NOT TALK about",
-            width: "md:col-span-2",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-          {
-            id: 10,
-            title: "F Club",
-            width: "md:col-span-1",
-            height: "h-60",
-            bg: "bg-neutral-100 dark:bg-neutral-800",
-          },
-        ].map((box) => (
-          <div
-            key={box.id}
-            className={`${box.width} ${box.height} ${box.bg} flex items-center justify-center rounded-lg p-4 shadow-sm`}
-          >
-            <h2 className="text-xl font-medium">{box.title}</h2>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
