@@ -8,9 +8,15 @@ import { TimelineRafting } from "@/components/TimelineRafting";
 import { Pricing } from "@/components/Pricing";
 import { FAQ } from "@/components/FAQ";
 
+type CabalgatasParams = {
+  params: {
+    slug: string;
+  };
+};
+
 // Generar metadata dinámica
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: CabalgatasParams
 ): Promise<Metadata> {
   // Asegúrate de que params esté disponible con await Promise.resolve
   const resolvedParams = await Promise.resolve(params);
@@ -25,7 +31,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function CabalgatasPageSlug({ params }: { params: { slug: string } }) {
+export default async function CabalgatasPageSlug({ params }: CabalgatasParams) {
   // Asegúrate de que params esté disponible con await Promise.resolve
   const resolvedParams = await Promise.resolve(params);
   const slug = resolvedParams.slug;
