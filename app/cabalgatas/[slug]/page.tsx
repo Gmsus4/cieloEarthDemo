@@ -12,9 +12,9 @@ import { FAQ } from "@/components/FAQ";
 export async function generateMetadata(
   { params }: { params: { slug: string } }
 ): Promise<Metadata> {
+  // Asegúrate de que params esté disponible con await Promise.resolve
   const resolvedParams = await Promise.resolve(params);
   const slug = resolvedParams.slug;
-  
   const data = cabalgatas.find((exp) => titleToSlug(exp.slug) === slug);
 
   if (!data) return { title: "No encontrado | Cielo Earth" };
@@ -26,6 +26,7 @@ export async function generateMetadata(
 }
 
 export default async function CabalgatasPageSlug({ params }: { params: { slug: string } }) {
+  // Asegúrate de que params esté disponible con await Promise.resolve
   const resolvedParams = await Promise.resolve(params);
   const slug = resolvedParams.slug;
   const data = cabalgatas.find((exp) => titleToSlug(exp.slug) === slug);
@@ -48,7 +49,7 @@ export default async function CabalgatasPageSlug({ params }: { params: { slug: s
             {
                 data.timeline.map((line, index) => {
                     return (
-                        <TimelineRafting dataTimeline={line.data} title={line.title}/>
+                        <TimelineRafting dataTimeline={line.data} title={line.title} key={index}/>
                     )
                 })
             }
