@@ -8,6 +8,8 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { Cloud } from "lucide-react";
 
 
 interface NavbarProps {
@@ -68,7 +70,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x-0 top-4 z-40 w-full", className)}
+      className={cn("fixed inset-x-0 top-4 z-100 w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -114,6 +116,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const pathname = usePathname();
 
   return (
     <motion.div
@@ -127,7 +130,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          // className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 dark:bg-purple-400"
+          className={`relative px-4 py-2 text-neutral-600 dark:text-neutral-300 ${
+                    pathname === item.link
+                    ? "rounded-full bg-gray-100 dark:bg-neutral-800"
+                    : "text-gray-600 hover:text-gray-900 dark:text-neutral-300 dark:hover:text-white"
+                }`}
           key={`link-${idx}`}
           href={item.link}
         >
@@ -237,13 +245,14 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img
+      {/* <img
         src="https://assets.aceternity.com/logo-dark.png"
         alt="logo"
         width={30}
         height={30}
-      />
-      <span className="font-medium text-black dark:text-white">Startup</span>
+      /> */}
+      <Cloud className="w-8 h-8 text-white"/>
+      <span className="font-medium text-black dark:text-white">Cielo Earth</span>
     </a>
   );
 };
@@ -278,12 +287,14 @@ export const NavbarButton = ({
   };
 
   return (
-    <Tag
-      href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
-    >
-      {children}
-    </Tag>
+    <div className="flex items-center gap-4">
+      <Tag
+        href={href || undefined}
+        className={cn(baseStyles, variantStyles[variant], className)}
+        {...props}
+      >
+        {children}
+      </Tag>
+    </div>
   );
 };

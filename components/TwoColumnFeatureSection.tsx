@@ -17,14 +17,14 @@ type TwoColumnFeatureSectionProps = {
 export const TwoColumnFeatureSection = ({title, urlImage, alt, children, isImageLeft = false, widthImage = "w-1/2", widthNode = "w-1/2"}: TwoColumnFeatureSectionProps) => {
   return (
     // <div className="min-h-screen w-full flex flex-row-reverse justify-center items-stretch overflow-hidden">
-    <div className={`min-h-screen w-full flex ${isImageLeft ? "flex-row" : "flex-row-reverse"}`}>
+    <div className={`min-h-screen w-full flex ${isImageLeft ? "flex-row" : "flex-row-reverse"} relative`}>
         <div className={`${widthImage} h-auto`}>
-            <img src={urlImage} alt={alt} className="h-screen object-cover w-full"/>
+            <img src={urlImage} alt={alt} className="h-screen object-cover w-full sticky top-0"/>
         </div>
         
         <div className={`${widthNode} flex items-center`}>
             <motion.div 
-                className="px-8 md:px-12 lg:px-20 py-16 max-w-xl mx-auto"
+                className="px-8 md:px-12 lg:px-20 py-16 w-full"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}

@@ -2,13 +2,15 @@
 // import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
 import { TextGenerateEffect } from "./text-generate-effect";
+import { Button } from "../Button";
+import { Noise } from "../Noise";
 
 interface SlideData {
-  title: string;
-  button: string;
+  title?: string;
+  button?: string;
   src: string;
-  date: string;
-  place: string
+  date?: string;
+  place?: string;
 }
 
 interface SlideProps {
@@ -104,6 +106,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             loading="eager"
             decoding="sync"
           />
+          <Noise backgroundSize="60%"/>
           {current === index && (
             <div className="absolute inset-0 bg-black/30 transition-all duration-1000" />
           )}
@@ -118,11 +121,9 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             {title}
           </h2>
           {/* <p>{place}</p> */}
-          <TextGenerateEffect words={place} />
-          <div className="flex justify-center">
-            <a href="/" className="mt-6 cursor-pointer font-bold capitalize px-4 py-2 w-fit mx-auto sm:text-sm text-black bg-white h-12 border border-transparent text-xs flex justify-center items-center rounded-lg hover:shadow-lg transition duration-200 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
-              {button}
-            </a>
+          <TextGenerateEffect words={place!} />
+          <div className="flex justify-center mt-6">
+            { button &&  <Button url="/" title={button!}/>}
           </div>
         </article>
       </li>
@@ -143,7 +144,7 @@ const CarouselControl = ({
 }: CarouselControlProps) => {
   return (
     <button
-      className={`w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 ${
+      className={`cursor-pointer w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 ${
         type === "previous" ? "rotate-180" : ""
       }`}
       title={title}

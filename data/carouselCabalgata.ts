@@ -1,8 +1,4 @@
-"use client";
-
-import Carousel from "@/components/ui/carousel";
-export function CarouselDemo() {
-  const slideData = [
+export const slideDataCabalgata = [
     {
       title: "Cabalgata Cielo Rojo",
       button: "Saber más",
@@ -31,10 +27,4 @@ export function CarouselDemo() {
       place: "Valle de Bravo",
       src: "https://images.pexels.com/photos/162520/farmer-man-shepherd-dog-162520.jpeg",
     },
-  ];
-  return (
-    <div className="relative overflow-hidden w-full h-full lg:pt-10 lg:pb-20 pb-20 py-4">
-      <Carousel slides={slideData} />
-    </div>
-  );
-}
+];

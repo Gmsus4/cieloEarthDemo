@@ -1,119 +1,27 @@
-"use client";
-import { CarouselDemo } from "@/components/CarouselDemo";
-import { HeroSectionOne } from "@/components/HeroSectionHome";
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { CarouselSlide } from "@/components/CarouselSlide";
+import { HeroSectionTitle } from "@/components/HeroSectionTitle";
+import { NavbarComponent } from "@/components/NavbarComponent";
+import { NextExperiences } from "@/components/NextExperiences";
+import { TitleSections } from "@/components/TitleSections";
+import { slideDataCabalgata } from "@/data/carouselCabalgata"
 
 export default function Page() {
-  const navItems = [
-    {
-      name: "Cabalgatas",
-      link: "/cabalgatas",
-    },
-    {
-      name: "Surf",
-      link: "#pricing",
-    },
-    {
-      name: "Yoga",
-      link: "/yoga",
-    },
-    {
-      name: "Rafting",
-      link: "#contact",
-    },
-    {
-      name: "Careyes",
-      link: "#contact",
-    },
-    {
-      name: "Nosotros",
-      link: "#contact",
-    },
-  ];
-
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <div className="relative w-full">
-      <div className="bg-[url('/hero.jpeg')] bg-cover bg-top bg-no-repeat h-screen">
+      <div className="bg-[url('/hero.jpeg')] bg-cover bg-top bg-no-repeat h-screen relative">
         <div className="absolute inset-0 bg-black/60" />
-        {/* <div className="absolute inset-0 bg-[url('/hero.jpeg')] bg-cover bg-center bg-no-repeat -z-10"/> */}
-        <Navbar>
-          {/* Desktop Navigation */}
-          <NavBody>
-            <NavbarLogo />
-            <NavItems items={navItems} />
-            <div className="flex items-center gap-4">
-              <NavbarButton variant="secondary" href="https://www.instagram.com/cielo.earth/" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg>
-              </NavbarButton>
-              <NavbarButton variant="primary">Book a call</NavbarButton>
-            </div>
-          </NavBody>
-
-          {/* Mobile Navigation */}
-          <MobileNav>
-            <MobileNavHeader>
-              <NavbarLogo />
-              <MobileNavToggle
-                isOpen={isMobileMenuOpen}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
-            </MobileNavHeader>
-
-            <MobileNavMenu
-              isOpen={isMobileMenuOpen}
-              onClose={() => setIsMobileMenuOpen(false)}
-            >
-              {navItems.map((item, idx) => (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300"
-                >
-                  <span className="block">{item.name}</span>
-                </a>
-              ))}
-              <div className="flex w-full flex-col gap-4">
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  Login
-                </NavbarButton>
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  Book a call
-                </NavbarButton>
-              </div>
-            </MobileNavMenu>
-          </MobileNav>
-        </Navbar>
-        <HeroSectionOne title="Viajes que pisan fuerte la tierra y acarician el cielo."/>
+        <NavbarComponent />        
+        <HeroSectionTitle title="Viajes que pisan fuerte la tierra y acarician el cielo." buttonA="Unete a Nosotros" buttonB="Agendar Fecha" urlA="#nextexperiences" urlB="/date" isFlipWords={true} />
       </div>
 
-
-      <div className="w-full h-auto flex flex-col items-center justify-start py-20">
-        <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
-          Próximas Experiencias
-        </h2>
-        <CarouselDemo />
+      <div id="nextexperiences" className="w-full h-auto flex flex-col items-center justify-start pb-10 pt-16 sm:py-20">
+        <TitleSections title="Próximas Experiencias"/>
+        <CarouselSlide slides={slideDataCabalgata}/>
+      </div>
+      
+      <div className="overflow-hidden pb-32 min-h-screen flex flex-col items-center justify-center">
+        <TitleSections title="Nuestras 4 experiencias de conexión"/>
+        <NextExperiences />
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { FlipWords } from "../components/ui/flip-words";
-import { ColourfulText } from "./ui/colourful-text";
 
 export function FlipWordsDemo() {
   const words = ["inolvidables", "mágicas", "auténticas", "especiales", "sorprendentes", "hermosas", "agradables", "transformadoras", "emocionantes", "inolvidables", "renovadoras", "excepcionales", "fascinantes", "inspiradoras"];
