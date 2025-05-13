@@ -8,9 +8,15 @@ import { TimelineRafting } from "@/components/TimelineRafting";
 import { Pricing } from "@/components/Pricing";
 import { FAQ } from "@/components/FAQ";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata>{
-  const { slug } = await params;
-  const data = cabalgatas.find((exp) => titleToSlug(exp.slug) === slug);
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = cabalgatas.find((c) => c.slug === params.slug);
+
   if (!data) return { title: "No encontrado | Cielo Earth" };
 
   return {
@@ -19,26 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-// export async function generateMetadata(
-//   { params }: { params: Promise<{ id: string }> }
-// ): Promise<Metadata> {
-//   const resolvedParams = await Promise.resolve(params);
-//   const slug = resolvedParams.slug;
-//   const data = cabalgatas.find((exp) => titleToSlug(exp.slug) === slug);
+export default async function CabalgatasPageSlug({ params }: Props) {
+    const slug = params.slug;
 
-//   if (!data) return { title: "No encontrado | Cielo Earth" };
+    const data = cabalgatas.find((c) => c.slug === slug);
 
-//   return {
-//     title: `${data.title} | Cielo Earth`,
-//     description: data.description,
-//   };
-// }
-
-export default async function CabalgatasPageSlug({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    // console.log(slug)
-    const data = cabalgatas.find((exp) => titleToSlug(exp.slug) === slug);
-    if (!data) return notFound();
+    if (!data) {
+        notFound();
+    }
 
   return (
     <div className="relative w-full">

@@ -10,16 +10,9 @@ import { PlacesPagination } from "@/components/PlacesPagination";
 import { titleToSlug } from "@/components/utils/slugify";
 
 // Generar metadata dinámica
-export async function generateMetadata(
-  { params }: { params: { slug: string } }
-): Promise<Metadata> {
-  // We need to use the params object in a different way
-  // First make sure we have an async context
-  const resolvedParams = await Promise.resolve(params);
-  const slug = resolvedParams.slug;
-  
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata>{
+  const { slug } = await params;
   const data = lugares.find((exp) => titleToSlug(exp.title) === slug);
-
   if (!data) return { title: "No encontrado | Cielo Earth" };
 
   return {
@@ -28,13 +21,11 @@ export async function generateMetadata(
   };
 }
 
-export default async function LugaresPageSlug({ params }: { params: { slug: string } }) {
-  // Also handle params properly in the main component
-  const resolvedParams = await Promise.resolve(params);
-  const slug = resolvedParams.slug;
-  console.log(slug)
-  const data = lugares.find((exp) => titleToSlug(exp.title) === slug);
-  if (!data) return notFound();
+export default async function LugaresPageSlug({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    // console.log(slug)
+    const data = lugares.find((exp) => titleToSlug(exp.title) === slug);
+    if (!data) return notFound();
   
   let slideDataSlug = [] as any;
 
