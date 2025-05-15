@@ -4,10 +4,10 @@ import { NavbarComponent } from "@/components/NavbarComponent";
 import { TitleSections } from "@/components/TitleSections";
 import { WobbleCardDemo } from "@/components/WobbleCardDemo";
 import { MapPin } from "lucide-react";
-import { lugares } from "@/data/lugares"
+import { lugaresAstronomia } from "@/data/astronomia"
 
 export const metadata: Metadata = {
-  title: "Lugares | Cielo Earth",
+  title: "Astronomía | YourTalent",
   description: "El destino más exclusivo de México",
 };
 
@@ -28,10 +28,10 @@ function titleToSlug(title: string): string {
 export default function CabalgatasPage() {
   return (
     <div className="relative w-full">
-      <div className="bg-[url('/lugares.jpg')] bg-cover bg-top bg-no-repeat h-screen relative">
+      <div className="bg-[url('/astronomia.webp')] bg-cover bg-top bg-no-repeat h-screen relative">
       <div className="absolute inset-0 bg-black/60"/>
         <NavbarComponent />
-        <HeroSectionTitle title="Espacios únicos pensados para descansar, convivir y disfrutar." buttonA="Ver lugares" urlA="#lugares" buttonB="Más información" urlB="#">
+        <HeroSectionTitle title="Astronomía para curiosos: descubre lo que hay más allá." buttonA="Ver lugares" urlA="#lugares" buttonB="Más información" urlB="#">
             {/* <p className="text-xl text-center">Contamos con diferentes tipos de residencias.</p> */}
             {/* <p className="text-xl text-center">Espacios de 1 a 7 habitaciones, según tus necesidades.</p> */}
             {/* <div className="mt-10 flex gap-2 items-center justify-center">
@@ -44,12 +44,12 @@ export default function CabalgatasPage() {
       <section id="lugares" className="w-full min-h-screen flex flex-col items-center justify-start py-20">
         <TitleSections title="Elige tu tipo de espacio ideal"/>
         <WobbleCardDemo
-          cards={lugares.map((item) => ({
+          cards={lugaresAstronomia.map((item) => ({
             title: item.title,
             colSpan: "lg:col-span-1",
             slug: titleToSlug(item.title),
             image: item.image || "https://via.placeholder.com/400x300", // fallback en caso de que falte la imagen
-            section: "lugares",
+            section: "astronomia",
             btnTitle: "Ver lugar"
           }))}
         />

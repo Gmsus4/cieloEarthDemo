@@ -9,7 +9,7 @@ import {
 
 import React, { useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Cloud } from "lucide-react";
+import { PencilLine } from "lucide-react";
 
 
 interface NavbarProps {
@@ -251,8 +251,8 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       /> */}
-      <Cloud className="w-8 h-8 text-white"/>
-      <span className="font-medium text-black dark:text-white">Cielo Earth</span>
+      <PencilLine className="w-8 h-8 text-white"/>
+      <span className="font-medium text-black dark:text-white">YoureTalent</span>
     </a>
   );
 };

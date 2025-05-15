@@ -1,4 +1,4 @@
-import { lugares } from "@/data/lugares";
+import { lugaresAstronomia } from "@/data/astronomia";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HeroSectionTitle } from '../../../components/HeroSectionTitle';
@@ -6,13 +6,13 @@ import { NavbarComponent } from "@/components/NavbarComponent";
 import { TitleSections } from "@/components/TitleSections";
 import { CarouselSlide } from "@/components/CarouselSlide";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { PlacesPagination } from "@/components/PlacesPagination";
+import { AstronomiaPagination } from "@/components/AstronomiaPagination";
 import { titleToSlug } from "@/components/utils/slugify";
 
 // Generar metadata dinámica
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata>{
   const { slug } = await params;
-  const data = lugares.find((exp) => titleToSlug(exp.title) === slug);
+  const data = lugaresAstronomia.find((exp) => titleToSlug(exp.title) === slug);
   if (!data) return { title: "No encontrado | Cielo Earth" };
 
   return {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function LugaresPageSlug({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     // console.log(slug)
-    const data = lugares.find((exp) => titleToSlug(exp.title) === slug);
+    const data = lugaresAstronomia.find((exp) => titleToSlug(exp.title) === slug);
     if (!data) return notFound();
   
   let slideDataSlug = [] as any;
@@ -112,7 +112,7 @@ export default async function LugaresPageSlug({ params }: { params: Promise<{ sl
             <h2 className="text-3xl font-bold mb-8 text-center">Características</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {data.features.map((feacture, index) => {
-                const IconComponent = feacture.icon;
+                const Icon = feacture.icon;
                 return (
                   <div key={index} className="flex items-center h-full w-full justify-start gap-4 p-3 bg-black rounded-md shadow-sm relative">
                     <div className="rounded-md">
@@ -127,7 +127,7 @@ export default async function LugaresPageSlug({ params }: { params: Promise<{ sl
                     <div className="flex items-center justify-center w-6 h-6 bg-white rounded-full absolute -top-2 -right-2">
                       <span className="font-bold text-black">{feacture.qty}</span>
                     </div>
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <Icon className="w-8 h-8 text-white" />
                     <span className="mt-0.5">{feacture.title}</span>
                   </div>  
                 );
@@ -136,7 +136,7 @@ export default async function LugaresPageSlug({ params }: { params: Promise<{ sl
           </div>
         </div>
 
-        <PlacesPagination slug={slug}/>
+        <AstronomiaPagination slug={slug}/>
     </div>
   );
 }

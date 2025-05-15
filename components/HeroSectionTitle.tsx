@@ -18,7 +18,7 @@ type HeroSectionOneProps = {
 export function HeroSectionTitle({title, children, isFlipWords = false, buttonA, buttonB, urlA, urlB}: HeroSectionOneProps) {
   return (
     <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center h-screen">
-      <div className="px-4 flex flex-col items-center justify-center">
+      <div className="px-4 flex flex-col items-center justify-center w-full">
         <h2 className="px-10 text-justify sm:text-center sm:text-6xl relative z-10 mx-auto max-w-4xl  text-5xl font-bold text-black lg:text-7xl dark:text-slate-100">
           {title
             .split(" ")

@@ -7,7 +7,7 @@ type TimelineProps = {
     subtitle?: string
 };
 
-export function TimelineRafting({dataTimeline, title, subtitle}: TimelineProps) {
+export function TimelineFotografia({dataTimeline, title, subtitle}: TimelineProps) {
   const allEvents = dataTimeline;
 
   const timelineData = allEvents.map((item, index) => {
@@ -20,13 +20,13 @@ export function TimelineRafting({dataTimeline, title, subtitle}: TimelineProps) 
           <p className="mb-8 text-lg sm:text-xl md:text-2xl text-gray-200 font-normal dark:text-neutral-200">
             {item.description}
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {images && images.map((image: string, index: number) => (
               <img
                 key={index}
                 src={image}
                 alt={`Imagen ${index + 1}`}
-                className="w-full h-full bg-center bg-cover rounded-lg shadow-md"
+                className="w-full h-72 object-cover object-center rounded-lg shadow-md"
               />
             ))}
           </div>

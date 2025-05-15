@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from './Button'
-import { PricingItem } from "@/data/cabalgataCielo"
+import { PricingItem } from "@/data/gastronomiaTimeline"
 import { Check } from 'lucide-react';
 
 type PricingProps = {
@@ -17,7 +17,7 @@ export const Pricing = ({pricingInfo}: PricingProps) => {
                         return (
                             <div key={index} className="p-6 relative z-10 bg-white border border-gray-200 rounded-xl md:p-10 dark:bg-neutral-900 dark:border-neutral-800">
                                 <h3 className="text-xl font-bold text-gray-800 dark:text-neutral-200">{item.title}</h3>
-                                <div className="text-sm text-gray-500 dark:text-neutral-500">Everything a small team needs.</div>
+                                <div className="text-sm text-gray-500 dark:text-neutral-500">{item.description}</div>
 
                                 <div className="mt-5">
                                     <span className="text-6xl font-bold text-gray-800 dark:text-neutral-200">${item.price}</span>

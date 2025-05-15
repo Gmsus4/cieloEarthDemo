@@ -5,7 +5,7 @@ import { team } from "@/data/team"
 export default function NosotrosPage() {
     return (
         <div className="relative w-full">
-            <div className="bg-[url('/nosotros.jpg')] bg-cover bg-center bg-no-repeat h-screen relative">
+            <div className="bg-[url('/nosotros.webp')] bg-cover bg-center bg-no-repeat h-screen relative">
                 <div className="absolute inset-0 bg-black/60" />
                 <NavbarComponent />
                 <HeroSectionTitle title="Un poquito de nosotros: cada destino, una sonrisa compartida" buttonA="Ver nuestra historia" urlA="#nosotros" buttonB="Conoce nuestro equipo" urlB="#team"/>   
@@ -13,10 +13,9 @@ export default function NosotrosPage() {
             <div id="nosotros" className="px-10 sm:px-14 md:px-20 lg:px-0 py-10 md:py-28 lg:py-0 min-h-screen flex items-center justify-center flex-col lg:flex-row gap-10">
                 <div className="w-full lg:w-1/2 h-full flex items-center justify-center flex-col lg:pl-20">
                     <div className="lg:px-0 flex justify-center lg:max-w-lg flex-col">
-                        <p className="text-5xl md:text-6xl lg:text-7xl">Cielo Earth</p>
-                        <p className="mt-6 text-lg/8 text-gray-200">En cada viaje que organizamos, hay algo más que rutas, horarios y destinos: hay historias.
-                        Historias de personas que deciden pausar su rutina para respirar aire puro, admirar paisajes que parecen irreales y descubrir lo simple y profundo que puede ser el mundo natural.</p>
-                        <p>asdasd</p>
+                        <p className="text-5xl md:text-6xl lg:text-7xl">YoureTalent</p>
+                        <p className="mt-6 text-lg/8 text-gray-200">Creemos que el conocimiento debe ser libre, práctico y transformador. Por eso diseñamos experiencias de aprendizaje en distintas áreas como astronomía, fotografía, cocina tradicional, herbolaria, arte popular, escritura creativa, conexión con la naturaleza y mucho más.</p>
+                        <p>Cada curso es una invitación a descubrir nuevas habilidades, reconectar contigo mismo y ampliar tu forma de ver el mundo.</p>
                     </div>
                 </div>
                 <img src="https://images.pexels.com/photos/3182784/pexels-photo-3182784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="h-auto lg:h-screen w-full lg:w-1/2 rounded-2xl lg:rounded-none object-cover object-center"/>

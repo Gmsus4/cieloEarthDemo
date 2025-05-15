@@ -13,8 +13,8 @@ import "./globals.css";
 // });
 
 export const metadata: Metadata = {
-  title: "Cielo Earth",
-  description: "Redescubre la naturaleza al ritmo de cada galope",
+  title: "YourTalent",
+  description: "Todos tenemos talentos que probablemente están escondidos",
 };
 
 export default function RootLayout({

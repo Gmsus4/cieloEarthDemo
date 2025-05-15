@@ -6,11 +6,11 @@ import { Button } from './Button';
 
 export const NextExperiences = () => {
   return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto h-auto px-10 py-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto h-auto px-10">
           {
             experiences.map((experience, index) => {
               return (
-                <div style={{ backgroundImage: `url(${experience.bgImage})`}} key={index} className={`bg-cover bg-top bg-no-repeat w-full p-4 h-96 rounded-2xl relative overflow-hidden text-white`}>
+                <div style={{ backgroundImage: `url(${experience.bgImage})`}} key={index} className={`bg-cover bg-top bg-no-repeat w-full p-4 h-72 rounded-2xl relative overflow-hidden text-white`}>
                   <div className="absolute inset-0 bg-black/60 z-0" />
                   <Noise />
                   <div className="relative z-10 flex flex-col-reverse justify-start h-full w-full gap-4 rounded-2xl p-4">

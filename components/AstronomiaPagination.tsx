@@ -1,18 +1,18 @@
-import { lugares } from "@/data/lugares";
+import { lugaresAstronomia } from "@/data/astronomia";
 import { titleToSlug } from "@/components/utils/slugify";
 import { Button } from './Button';
 
-interface PlacesPaginationProps {
+interface AstronomiaPaginationProps {
   slug?: string;
 }
 
-export const PlacesPagination = ({ slug }: PlacesPaginationProps) => {
+export const AstronomiaPagination = ({ slug }: AstronomiaPaginationProps) => {
   return (
     <div className="py-8">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Explora otros destinos</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {lugares.map((lugar, index) => {
+          {lugaresAstronomia.map((lugar, index) => {
             const lugarSlug = titleToSlug(lugar.title);
             if (slug !== lugarSlug) {
               return (

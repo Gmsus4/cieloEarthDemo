@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cabalgatas } from "@/data/cabalgatas";
+import { cabalgatas } from "@/data/gastronomias";
 import { HeroSectionTitle } from "@/components/HeroSectionTitle";
 import { NavbarComponent } from "@/components/NavbarComponent";
 import { titleToSlug } from "@/components/utils/slugify";
-import { TimelineRafting } from "@/components/TimelineRafting";
+import { TimelineRafting } from "@/components/TimelineFotografia";
 import { Pricing } from "@/components/Pricing";
 import { FAQ } from "@/components/FAQ";
 
